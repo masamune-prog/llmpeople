@@ -60,15 +60,20 @@ export const ChatTextArea = ({ mainStateDispatch, chatState, settings }: ChatTex
   }, [textAreaRef]);
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
+  useEffect(() => {
+    if (transcript) {
+      textAreaRef.current.value = transcript;
+    }
+  }, [transcript]);
   const listen = async () => {
     await SpeechRecognition.startListening({
       continuous: false,
       language: "en-GB",
     });
+    if (textAreaRef.current.value) {
+      textAreaRef.current.value = transcript;
+    }
   };
-  if (textAreaRef.current) {
-    textAreaRef.current.value = transcript;
-  }
   return (
     <TextareaWrapper>
       <Textarea
