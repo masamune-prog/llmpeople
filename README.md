@@ -76,3 +76,6 @@ export const models = {
 ## Speech Recognition
 
 This project uses [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition), which in turn uses the [Web Speech API's SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition). The language for speech recognition can be set in the settings. The default is `en-US`.
+
+## Customise Background
+If you wish to use a custom background, you can add a skybox to /lib/babylonjs/init.ts in the loadBackground function. Add 6 images to the public directory and name then appropriately per the documentation. Remember to import skybox.
